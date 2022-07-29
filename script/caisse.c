@@ -34,7 +34,7 @@ int main()
 	double montant_donner;
 	double change;
 	int count = 0;
-	char d[1];
+	char d[3];
 	printf("Vous devez payer: Rs %lf",valeur_a_payer);
 	printf("\nInserez le montant que vous donnerez: Rs ");
 	scanf("%lf",&montant_donner);
@@ -98,9 +98,10 @@ int main()
 		if(change>0)
 		{
 			printf("\nAlert: Il n'y a pas assez de billets/pieces pour cette transaction.\n");
-			printf("Voulez-vous remplir la caisse et continuer(o/n): ");
-			scanf("%[^\n]",d);
-			int compare = strcmp(d, 'o');
+			printf("Voulez-vous remplir la caisse et continuer(oui/non): ");
+			scanf("%s",d);
+			char z[] = {'o', 'u', 'i'};
+			int compare = strcmp(d, z);
 			if(compare)
 			{
 				RCaisse(nombre_billets,nombre_pieces,tb,tp);

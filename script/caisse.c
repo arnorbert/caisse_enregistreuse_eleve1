@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 double calcule_monnaie(double vap, double md)
 {
@@ -33,7 +34,7 @@ int main()
 	double montant_donner;
 	double change;
 	int count = 0;
-	char d;
+	char d[1];
 	printf("Vous devez payer: Rs %lf",valeur_a_payer);
 	printf("\nInserez le montant que vous donnerez: Rs ");
 	scanf("%lf",&montant_donner);
@@ -98,8 +99,9 @@ int main()
 		{
 			printf("\nAlert: Il n'y a pas assez de billets/pieces pour cette transaction.\n");
 			printf("Voulez-vous remplir la caisse et continuer(o/n): ");
-			scanf("%c",&d);
-			if(d == 'o')
+			scanf("%[^\n]",d);
+			int compare = strcmp(d, 'o');
+			if(compare)
 			{
 				RCaisse(nombre_billets,nombre_pieces,tb,tp);
 			}
